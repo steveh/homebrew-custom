@@ -8,4 +8,3 @@ cask "sth-console" do
 
   binary "console", target: "sc"
 end
-
