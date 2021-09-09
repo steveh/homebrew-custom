@@ -5,17 +5,22 @@
 require_relative "../lib/private"
 class Backup < Formula
   desc "Backups"
-  homepage "https://github.com/kotiri/backup"
-  version "0.0.4"
+  homepage "https://github.com/steveh/backup"
+  version "0.0.5"
   bottle :unneeded
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/steveh/backup/releases/download/0.0.4/backup_0.0.4_Darwin_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-    sha256 "7d1382b6b3466681f27cbdfef5d2a8002b60909f6f3bd77cb5da22e35c4366ea"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/steveh/backup/releases/download/0.0.5/backup_0.0.5_Darwin_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "f5ea97a291b6f4f5556dd508ce424fd59eccdc76e0b318e478e883d224dddbe5"
+    end
   end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/steveh/backup/releases/download/0.0.4/backup_0.0.4_Linux_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-    sha256 "cc0e09286bc172fbbdd0e61d87af9736a408b2e2cac257bc7fb6df2442e6c545"
+
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/steveh/backup/releases/download/0.0.5/backup_0.0.5_Linux_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "02a940b913b1ad177ab038c4d1455ce0ce89d10824ccd31c9e71744bd8cc13a0"
+    end
   end
 
   def install
