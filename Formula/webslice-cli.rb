@@ -6,20 +6,20 @@ require_relative "../lib/private"
 class WebsliceCli < Formula
   desc "Webslice CLI"
   homepage "https://github.com/steveh/webslice-cli"
-  version "0.0.3"
+  version "0.0.4"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/steveh/webslice-cli/releases/download/0.0.3/webslice-cli_0.0.3_Darwin_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "c66c673392f4c6732a29bb3027617c2135a719a201d6f6e8bc298bbcaeb69180"
+      url "https://github.com/steveh/webslice-cli/releases/download/0.0.4/webslice-cli_0.0.4_Darwin_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "9d46c63ce63b116bb230c944cadf9a541127903ba06f2d0e2286cb32ef418c83"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/steveh/webslice-cli/releases/download/0.0.3/webslice-cli_0.0.3_Linux_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "392c6fe618701953715a6790771c8ec12c8312ef24464ae0f158db32335ddc7b"
+      url "https://github.com/steveh/webslice-cli/releases/download/0.0.4/webslice-cli_0.0.4_Linux_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "0de257d7db2a86c66da57342bed76b1d059dfcb2efa2ac73f749646976296160"
     end
   end
 
