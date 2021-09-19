@@ -1,7 +1,6 @@
 # typed: false
 # frozen_string_literal: true
 
-require_relative "../lib/private"
 class SthConsole < Formula
   desc "SiteHost Console"
   homepage "https://sth-console.phreak.nz/"
