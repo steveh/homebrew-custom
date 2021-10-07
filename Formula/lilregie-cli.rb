@@ -6,20 +6,20 @@ require_relative "../lib/private"
 class LilregieCli < Formula
   desc "Lil Regie CLI"
   homepage "https://github.com/lilregie/cli"
-  version "0.3.3"
+  version "0.3.5"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/LilRegie/cli/releases/download/0.3.3/lilregie-cli_0.3.3_Darwin_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "1dbae74e20aa753964437dcd890444cc41e141a924ec3de76860a7879c39b90c"
+      url "https://github.com/LilRegie/cli/releases/download/0.3.5/lilregie-cli_0.3.5_Darwin_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "ddaca09c579d83030fb9d29b0ae5ca7fd95a8946a2b34bddc5a0f3859a34df0f"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/LilRegie/cli/releases/download/0.3.3/lilregie-cli_0.3.3_Linux_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "6562ae563e801322a7151c1cbe922a94a094359b0c5ebb997a2cf679905c48aa"
+      url "https://github.com/LilRegie/cli/releases/download/0.3.5/lilregie-cli_0.3.5_Linux_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "406ac31cd0dd1ecdb36fa9be8908314324181898275cae83469ac63725f82c7a"
     end
   end
 
