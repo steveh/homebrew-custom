@@ -6,24 +6,43 @@ require_relative "../lib/private"
 class WebsliceCli < Formula
   desc "Webslice CLI"
   homepage "https://github.com/steveh/webslice-cli"
-  version "0.0.4"
-  bottle :unneeded
+  version "0.0.5"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/steveh/webslice-cli/releases/download/0.0.4/webslice-cli_0.0.4_Darwin_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "9d46c63ce63b116bb230c944cadf9a541127903ba06f2d0e2286cb32ef418c83"
+      url "https://github.com/steveh/webslice-cli/releases/download/0.0.5/webslice-cli_0.0.5_Darwin_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "e877073b2e1a4b46ad725d33a9b7f8f2d5d550d5c056995ddfe91fc439484106"
+
+      def install
+        bin.install "webslice"
+      end
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/steveh/webslice-cli/releases/download/0.0.5/webslice-cli_0.0.5_Darwin_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "6bf226d93b7041227fcaa06fed44257a199bd85ed2365b1bb6cb6c8a846957eb"
+
+      def install
+        bin.install "webslice"
+      end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/steveh/webslice-cli/releases/download/0.0.4/webslice-cli_0.0.4_Linux_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "0de257d7db2a86c66da57342bed76b1d059dfcb2efa2ac73f749646976296160"
-    end
-  end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/steveh/webslice-cli/releases/download/0.0.5/webslice-cli_0.0.5_Linux_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "1c6eb6ec99841d1bf3eb9b87d053e8973f6ac36848ab83ef41b4f7299f8d8320"
 
-  def install
-    bin.install "webslice"
+      def install
+        bin.install "webslice"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/steveh/webslice-cli/releases/download/0.0.5/webslice-cli_0.0.5_Linux_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "df530d0f092f7a172e832bc67d7a6337acaa4b41922d5fb30638f246e09f24f2"
+
+      def install
+        bin.install "webslice"
+      end
+    end
   end
 end
