@@ -6,24 +6,43 @@ require_relative "../lib/private"
 class LilregieCli < Formula
   desc "Lil Regie CLI"
   homepage "https://github.com/lilregie/cli"
-  version "0.4.2"
-  bottle :unneeded
+  version "0.4.3"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/LilRegie/cli/releases/download/0.4.2/lilregie-cli_0.4.2_Darwin_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "38ccac2bc3fd555a3c0ce672bf23d9647ec4d884788c697aeb8ee34500fcc16d"
+      url "https://github.com/LilRegie/cli/releases/download/0.4.3/lilregie-cli_0.4.3_Darwin_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "b08447c31becc24e65b13e4a4ab0d536a25f0716d67194d5dc02348825e2a996"
+
+      def install
+        bin.install "lilregie"
+      end
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/LilRegie/cli/releases/download/0.4.3/lilregie-cli_0.4.3_Darwin_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "af59b0dedf9ab3999a72a1564ef6eb9a53507b06f8724d953c603b8c6533a91f"
+
+      def install
+        bin.install "lilregie"
+      end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/LilRegie/cli/releases/download/0.4.2/lilregie-cli_0.4.2_Linux_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "ad880d6cb8a987ec1e5557f17da0d285d583662b755a53b46025acb344468f1f"
-    end
-  end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/LilRegie/cli/releases/download/0.4.3/lilregie-cli_0.4.3_Linux_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "e3b092228db0bef36a6bbeb2f1445d9641e2f77b5844e18880eb259c09e9ec15"
 
-  def install
-    bin.install "lilregie"
+      def install
+        bin.install "lilregie"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/LilRegie/cli/releases/download/0.4.3/lilregie-cli_0.4.3_Linux_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "28530e4f1eb07623c697b02d9b1ac7a2f1140a61ee80b4a94a0a21b7b47fd5b8"
+
+      def install
+        bin.install "lilregie"
+      end
+    end
   end
 end
