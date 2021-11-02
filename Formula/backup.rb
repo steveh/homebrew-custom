@@ -6,24 +6,43 @@ require_relative "../lib/private"
 class Backup < Formula
   desc "Backups"
   homepage "https://github.com/steveh/backup"
-  version "0.0.5"
-  bottle :unneeded
+  version "0.1.0"
 
   on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/steveh/backup/releases/download/0.1.0/backup_0.1.0_Darwin_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "25bdd870285a2f236019ba6963856d9e627bd9ade194fe53a6e5dc68490dc1fa"
+
+      def install
+        bin.install "backup"
+      end
+    end
     if Hardware::CPU.intel?
-      url "https://github.com/steveh/backup/releases/download/0.0.5/backup_0.0.5_Darwin_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "f5ea97a291b6f4f5556dd508ce424fd59eccdc76e0b318e478e883d224dddbe5"
+      url "https://github.com/steveh/backup/releases/download/0.1.0/backup_0.1.0_Darwin_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "62dd31be2f471005f306418f5980cc14ddee9b6f093d3014171f79e89eaf5118"
+
+      def install
+        bin.install "backup"
+      end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/steveh/backup/releases/download/0.0.5/backup_0.0.5_Linux_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "02a940b913b1ad177ab038c4d1455ce0ce89d10824ccd31c9e71744bd8cc13a0"
-    end
-  end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/steveh/backup/releases/download/0.1.0/backup_0.1.0_Linux_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "9019175a8ae27a5ae1bb139f115fcd32ccc1f6b51f97b2d8ce5282dc7490d459"
 
-  def install
-    bin.install "backup"
+      def install
+        bin.install "backup"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/steveh/backup/releases/download/0.1.0/backup_0.1.0_Linux_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "27deeafe24c7974acb2deebaa06cef232f17eee91dded7c9a58b77fd33970780"
+
+      def install
+        bin.install "backup"
+      end
+    end
   end
 end
