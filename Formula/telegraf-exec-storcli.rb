@@ -5,21 +5,21 @@
 class TelegrafExecStorcli < Formula
   desc "Extract Broadcom StorCLI and output Influx line protocol"
   homepage "https://github.com/steveh/telegraf-exec-storcli"
-  version "1.0.0"
+  version "1.0.1"
   depends_on :linux
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/steveh/telegraf-exec-storcli/releases/download/1.0.0/telegraf-exec-storcli_1.0.0_Linux_x86_64.tar.gz"
-      sha256 "8f87401de91de376a0a3802b7fa4ccfdcf48a98f2abd8f8421b7c0091db73412"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/steveh/telegraf-exec-storcli/releases/download/1.0.1/telegraf-exec-storcli_1.0.1_Linux_arm64.tar.gz"
+      sha256 "9be4f8a5321075063bcbd434c468736f89216d18d1dd54990da2329f8c5669e5"
 
       def install
         bin.install "telegraf-exec-storcli"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/steveh/telegraf-exec-storcli/releases/download/1.0.0/telegraf-exec-storcli_1.0.0_Linux_arm64.tar.gz"
-      sha256 "1cdcc217f340fdf1f3e4eed162e341534278c849ed752d12e8e93c5db5f606f7"
+    if Hardware::CPU.intel?
+      url "https://github.com/steveh/telegraf-exec-storcli/releases/download/1.0.1/telegraf-exec-storcli_1.0.1_Linux_x86_64.tar.gz"
+      sha256 "6d4cc8d8b3088b16f2fdfb85ea42e15240c5ed7935c7fa02ede1ea0234952542"
 
       def install
         bin.install "telegraf-exec-storcli"
