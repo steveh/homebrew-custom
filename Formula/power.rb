@@ -6,13 +6,39 @@ require_relative "../lib/private"
 class Power < Formula
   desc "Power management"
   homepage "https://github.com/steveh/power"
-  version "1.0.4"
-  depends_on :linux
+  version "1.0.5"
+
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/steveh/power/releases/download/1.0.5/power_1.0.5_Darwin_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "51b72e90693d7274e5151c2750084c41c5a47b0cf412fd1f1fa1e058ea0d1c2d"
+
+      def install
+        bin.install "power"
+      end
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/steveh/power/releases/download/1.0.5/power_1.0.5_Darwin_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "1455b6e8fb9de760c05ab74da4f1e0bb2172835b2ec67218b1a0ededfc45d6c9"
+
+      def install
+        bin.install "power"
+      end
+    end
+  end
 
   on_linux do
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/steveh/power/releases/download/1.0.5/power_1.0.5_Linux_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "14bd75369763b7c6dfb24c3edcb130530c8f413df4fcce67d6831e8c55263429"
+
+      def install
+        bin.install "power"
+      end
+    end
     if Hardware::CPU.intel?
-      url "https://github.com/steveh/power/releases/download/1.0.4/power_1.0.4_Linux_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "751866cd29259dee8f35b5d4c3c22a466a74d5f39ce595589844f68e44f147ea"
+      url "https://github.com/steveh/power/releases/download/1.0.5/power_1.0.5_Linux_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "091ff12a3bebfaf93241d3cc2de9205ca684e47acc68deb9ca3f26e66eb887e0"
 
       def install
         bin.install "power"
