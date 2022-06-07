@@ -6,20 +6,20 @@ require_relative "../lib/private"
 class Backup < Formula
   desc "Backups"
   homepage "https://github.com/steveh/backup"
-  version "0.1.0"
+  version "0.1.1"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/steveh/backup/releases/download/0.1.0/backup_0.1.0_Darwin_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "25bdd870285a2f236019ba6963856d9e627bd9ade194fe53a6e5dc68490dc1fa"
+    if Hardware::CPU.intel?
+      url "https://github.com/steveh/backup/releases/download/0.1.1/backup_0.1.1_Darwin_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "f9dad0e4300e9e5dc97acf1e4cbe9a900da55bd9ceb165157dd66fce3336cb83"
 
       def install
         bin.install "backup"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/steveh/backup/releases/download/0.1.0/backup_0.1.0_Darwin_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "62dd31be2f471005f306418f5980cc14ddee9b6f093d3014171f79e89eaf5118"
+    if Hardware::CPU.arm?
+      url "https://github.com/steveh/backup/releases/download/0.1.1/backup_0.1.1_Darwin_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "13e94d18b1480a5e822d49ef695cf465385644639ff512418957282609803bf1"
 
       def install
         bin.install "backup"
@@ -28,17 +28,17 @@ class Backup < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/steveh/backup/releases/download/0.1.0/backup_0.1.0_Linux_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "9019175a8ae27a5ae1bb139f115fcd32ccc1f6b51f97b2d8ce5282dc7490d459"
+    if Hardware::CPU.intel?
+      url "https://github.com/steveh/backup/releases/download/0.1.1/backup_0.1.1_Linux_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "46f350da537079b2f99dc5f00c60ea3d90a958f3de3dff57b94923903e9a013f"
 
       def install
         bin.install "backup"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/steveh/backup/releases/download/0.1.0/backup_0.1.0_Linux_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "27deeafe24c7974acb2deebaa06cef232f17eee91dded7c9a58b77fd33970780"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/steveh/backup/releases/download/0.1.1/backup_0.1.1_Linux_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "e170be55322538647e3604a26d38c1793353f622aacc25afb496b2641903fd15"
 
       def install
         bin.install "backup"
