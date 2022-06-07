@@ -6,20 +6,20 @@ require_relative "../lib/private"
 class Neuter < Formula
   desc "Social neuterer"
   homepage "https://github.com/steveh/neuter"
-  version "0.1.0"
+  version "0.1.1"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/steveh/neuter/releases/download/0.1.0/neuter_0.1.0_Darwin_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "411be20917962ea287cffd7c2a0bc496adb35b9bbd2eb68782afea909b30a634"
+      url "https://github.com/steveh/neuter/releases/download/0.1.1/neuter_0.1.1_Darwin_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "0a08bf120e3ea76ca36342a937b980b8325f5738a8295d528db8d1d9faab8d83"
 
       def install
         bin.install "neuter"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/steveh/neuter/releases/download/0.1.0/neuter_0.1.0_Darwin_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "c7ee92f7f6a971a061edcf1bf0ba8d5977c7f612a1b6d64bc7d5412d55d0d8e9"
+      url "https://github.com/steveh/neuter/releases/download/0.1.1/neuter_0.1.1_Darwin_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "61add50c97ba8d2115ea04f47f21ae76e4c701ce800b9a54cff157e1c034d3a9"
 
       def install
         bin.install "neuter"
@@ -28,17 +28,17 @@ class Neuter < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/steveh/neuter/releases/download/0.1.0/neuter_0.1.0_Linux_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "a6f06708076b8376dffc5b0ebe28c53e0f6b7ac144a60f397ae8bf2386bfb35e"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/steveh/neuter/releases/download/0.1.1/neuter_0.1.1_Linux_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "a22d9853b9a9dde3e86ecfa1be9870d4668cb1e9ec5a72a655f3d67e543fd797"
 
       def install
         bin.install "neuter"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/steveh/neuter/releases/download/0.1.0/neuter_0.1.0_Linux_arm64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "bc6099fb73721bbac0305d8a8bf59c3ae579c8852c9a616c9d232ef8e440e8f2"
+    if Hardware::CPU.intel?
+      url "https://github.com/steveh/neuter/releases/download/0.1.1/neuter_0.1.1_Linux_x86_64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "e8ab7d92994d3437979341fb67d6ecd4995710b2510f08053b129e776fd9785e"
 
       def install
         bin.install "neuter"
