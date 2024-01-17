@@ -15,7 +15,7 @@ class GitHubPrivateRepositoryReleaseDownloadStrategy < CurlDownloadStrategy
     meta[:headers] << "Accept: application/octet-stream"
     meta[:headers] << "Authorization: Basic #{userinfo}"
 
-    super(download_url, name, version, meta)
+    super(download_url, name, version, **meta)
   end
 
   private
