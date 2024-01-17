@@ -6,12 +6,12 @@ require_relative "../lib/private"
 class Sens < Formula
   desc "Sensor to MQTT"
   homepage "https://github.com/steveh/sens"
-  version "0.0.2"
+  version "0.0.3"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/steveh/sens/releases/download/0.0.2/sens_0.0.2_darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "f1be5deb72eefc5bd761eeab60ba17b309efa9139c7073034cde05effa54ba91"
+      url "https://github.com/steveh/sens/releases/download/0.0.3/sens_0.0.3_darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "378eeadfc4a0e0791056f6c94062b18951cf0dbfcd209ca9b04db7772045ba32"
 
       def install
         bin.install "sens"
@@ -21,16 +21,16 @@ class Sens < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/steveh/sens/releases/download/0.0.2/sens_0.0.2_linux_aarch64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "e572b014fc0a216d2a0a5a3842e5d2a966f9375a5c53b843f4a4d94099f845cc"
+      url "https://github.com/steveh/sens/releases/download/0.0.3/sens_0.0.3_linux_aarch64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "dba6f861c4e43b0d298d1fdcae2bc1c202d4d4575c9c29c4aa67a939a6ac4f2b"
 
       def install
         bin.install "sens"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/steveh/sens/releases/download/0.0.2/sens_0.0.2_linux_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "d8508803dd4988d69b20c204eb7b5aa0c411a0947ecc74d3ebee896d9eae76ab"
+      url "https://github.com/steveh/sens/releases/download/0.0.3/sens_0.0.3_linux_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "070b3ab20918c09f79af57df15cfeedaf84000208668482e81093689967bd2cc"
 
       def install
         bin.install "sens"
