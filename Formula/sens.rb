@@ -6,12 +6,12 @@ require_relative "../lib/private"
 class Sens < Formula
   desc "Sensor to MQTT"
   homepage "https://github.com/steveh/sens"
-  version "0.0.4"
+  version "0.0.5"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/steveh/sens/releases/download/0.0.4/sens_0.0.4_darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "91f8c06a44059f41f13152d3159f75bfc9b6e3db84a3e51c2e31c9d32bce5a10"
+    on_arm do
+      url "https://github.com/steveh/sens/releases/download/0.0.5/sens_0.0.5_darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "2c5eb54079f7321fa77021210bc55075743516773f56c5af226491fdfb5a5b49"
 
       def install
         bin.install "sens"
@@ -20,20 +20,24 @@ class Sens < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/steveh/sens/releases/download/0.0.4/sens_0.0.4_linux_aarch64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "cb1150ed3d590c1921e3045977df89654522f69aee37b3b1934cc8857dde5183"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/steveh/sens/releases/download/0.0.5/sens_0.0.5_linux_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+        sha256 "1eb06b313beec3f710cded3fa16e0b850dc0bcb15d36928909a7c5c989866fe6"
 
-      def install
-        bin.install "sens"
+        def install
+          bin.install "sens"
+        end
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/steveh/sens/releases/download/0.0.4/sens_0.0.4_linux_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "88ac40c02d8753e0f6cbe2d46789ef562ed34f21b65def61a4ab74a11595e2cd"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/steveh/sens/releases/download/0.0.5/sens_0.0.5_linux_aarch64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+        sha256 "81386e3ca964523b901ff0e7bd6d9e89697cc88423812ee222b972a198d4fa43"
 
-      def install
-        bin.install "sens"
+        def install
+          bin.install "sens"
+        end
       end
     end
   end
