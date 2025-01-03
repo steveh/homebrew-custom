@@ -6,20 +6,20 @@ require_relative "../lib/private"
 class Power < Formula
   desc "Power management"
   homepage "https://github.com/steveh/power"
-  version "1.3.2"
+  version "1.3.3"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/steveh/power/releases/download/1.3.2/power_1.3.2_darwin_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "f65bf0a0d6e4f5932f52cb9b0d64690ac594fbc1d8b189d5fd76b29f732f86cc"
+      url "https://github.com/steveh/power/releases/download/1.3.3/power_1.3.3_darwin_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "111b45bbb49b5b67429922562fcf4b8e02e34227492a5de9f79657b77d4734a0"
 
       def install
         bin.install "power"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/steveh/power/releases/download/1.3.2/power_1.3.2_darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "ae69edc70245988bea21b5871a268101cc0fa6aecc788fb6ff59b30f1eaebc8c"
+      url "https://github.com/steveh/power/releases/download/1.3.3/power_1.3.3_darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "ae9c1a18267bb002b8fb0c3569cbd845df07c4b15ffb35a2eedaa20028b5be44"
 
       def install
         bin.install "power"
@@ -30,8 +30,8 @@ class Power < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/steveh/power/releases/download/1.3.2/power_1.3.2_linux_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-        sha256 "3dce0c233c191b0243c6527093fccc98835cdeff3c2441ff6835ae65597d0b96"
+        url "https://github.com/steveh/power/releases/download/1.3.3/power_1.3.3_linux_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+        sha256 "ad0b9ea7f1e69af9e683cd7a1c85214d335ba2eb3b63b8baad1cf7d88360f1ae"
 
         def install
           bin.install "power"
@@ -40,8 +40,8 @@ class Power < Formula
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/steveh/power/releases/download/1.3.2/power_1.3.2_linux_aarch64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-        sha256 "16ca2e580834d94fc95aaab96e3d38029aae9a06de77adf6f98aa7ae63a513c7"
+        url "https://github.com/steveh/power/releases/download/1.3.3/power_1.3.3_linux_aarch64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+        sha256 "5f6f1a5cb9a1fccbf235bee3b7baf4cf41007790906bc3fc7a3b402501d49982"
 
         def install
           bin.install "power"
