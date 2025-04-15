@@ -9,7 +9,8 @@ class GitHubPrivateRepositoryReleaseDownloadStrategy < CurlDownloadStrategy
 
     download_url = get_release_download_url(match[:owner], match[:repo], match[:tag], match[:filename])
 
-    userinfo = Base64.encode64("#{Homebrew::EnvConfig.github_api_token}:")
+    token = get_github_token
+    userinfo = Base64.encode64("#{token}:")
 
     meta[:headers] ||= []
     meta[:headers] << "Accept: application/octet-stream"
@@ -19,6 +20,31 @@ class GitHubPrivateRepositoryReleaseDownloadStrategy < CurlDownloadStrategy
   end
 
   private
+
+  def get_github_token
+    # Try to read from ~/.netrc first
+    netrc_path = File.expand_path("~/.netrc")
+    if File.exist?(netrc_path)
+      begin
+        current_machine = nil
+        File.readlines(netrc_path).each do |line|
+          line.strip!
+          next if line.empty? || line.start_with?("#")
+
+          if line.start_with?("machine ")
+            current_machine = line.split(" ")[1]
+          elsif current_machine == "github.com" && line.start_with?("password ")
+            return line.split(" ")[1]
+          end
+        end
+      rescue
+        # If netrc parsing fails, fall back to environment variable
+      end
+    end
+
+    # Fall back to environment variable
+    Homebrew::EnvConfig.github_api_token
+  end
 
   def get_release_download_url(owner, repo, tag, filename)
     release_metadata = GitHub::API.open_rest(GitHub.url_to("repos", owner, repo, "releases", "tags", tag))
