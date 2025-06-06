@@ -6,20 +6,20 @@ require_relative "../lib/private"
 class LilregieCli < Formula
   desc "Lil Regie CLI"
   homepage "https://github.com/lilregie/cli"
-  version "0.12.2"
+  version "0.12.7"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/lilregie/cli/releases/download/0.12.2/lilregie-cli_0.12.2_darwin_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "78f86bea0b38cb6b7cce9268b55028cbe33586ef7498162e56c500e707215153"
+      url "https://github.com/lilregie/cli/releases/download/0.12.7/lilregie-cli_0.12.7_darwin_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "3310c1c0deb1ae5bd2f92a7ee8af82596683337bfcfd3586d33ad28d236b7827"
 
       def install
         bin.install "lilregie"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/lilregie/cli/releases/download/0.12.2/lilregie-cli_0.12.2_darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "df8fa99dde95c8fb696cd88984083f5ad9edac04d9c6249ef08db68899efb29a"
+      url "https://github.com/lilregie/cli/releases/download/0.12.7/lilregie-cli_0.12.7_darwin_arm64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "1f02f3171648007b5fc772fe5e555481bcd7c66394bfdedccee6e7cdc78f3f20"
 
       def install
         bin.install "lilregie"
@@ -29,15 +29,15 @@ class LilregieCli < Formula
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/lilregie/cli/releases/download/0.12.2/lilregie-cli_0.12.2_linux_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "4ecc5c00c58c700279a3a016e80ad7bae1c26b20af13cc397e04b83e9f7db63c"
+      url "https://github.com/lilregie/cli/releases/download/0.12.7/lilregie-cli_0.12.7_linux_x86_64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "f3e4633319b709aa083f1aac68742fd22197f9258c7bf797590c70c7d4120375"
       def install
         bin.install "lilregie"
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/lilregie/cli/releases/download/0.12.2/lilregie-cli_0.12.2_linux_aarch64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "7109222a15e091c232bcda82caf5e41a8fdbc3a1955c6a74191004fb1ca73d85"
+      url "https://github.com/lilregie/cli/releases/download/0.12.7/lilregie-cli_0.12.7_linux_aarch64.tar.gz", using: GitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "48a5608c81b053388e1400b08eb642a8cb4bf0b2f7809100c084bdd51c99abed"
       def install
         bin.install "lilregie"
       end
