@@ -8,9 +8,33 @@ cask "backup" do
   module GitHubHelper
     def self.token
       github_token = Homebrew::EnvConfig.github_api_token
+      github_token = netrc_token if github_token.nil? || github_token.empty?
       github_token ||= GitHub::API.credentials
       raise "Failed to retrieve github api token" if github_token.nil? || github_token.empty?
       github_token
+    end
+
+    def self.netrc_token
+      netrc_path = File.expand_path("~/.netrc")
+      return nil unless File.exist?(netrc_path)
+
+      begin
+        current_machine = nil
+        File.readlines(netrc_path).each do |line|
+          line = line.strip
+          next if line.empty? || line.start_with?("#")
+
+          if line.start_with?("machine ")
+            current_machine = line.split(" ")[1]
+          elsif current_machine == "github.com" && line.start_with?("password ")
+            return line.split(" ")[1]
+          end
+        end
+      rescue
+        # If netrc parsing fails, fall back to other mechanisms
+      end
+
+      nil
     end
 
     def self.release_asset_url(tag, name)
@@ -26,7 +50,7 @@ cask "backup" do
   name "backup"
   desc "Backups"
   homepage "https://github.com/steveh/backup"
-  version "0.3.4"
+  version "0.3.5"
 
   livecheck do
     skip "Auto-generated on release."
@@ -42,7 +66,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "774d70180daabe6ac8f0ecdbb5f29a445d93e731e59e5f7ef3177631e455f432"
+      sha256 "06bcd0829d014c43aa32a160189496d6e57c58768e9fbfc33c5076820a888f26"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_darwin_arm64.tar.gz")}",
@@ -51,7 +75,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "e87c8d72ca944d9466d459aa480178b634a139476162bf894ed8a89546c0b206"
+      sha256 "2fa0a8f83dd36506a1d6be029b1bd937fababc75eba660435d3afab1052bc6e9"
     end
   end
 
@@ -63,7 +87,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "38a708316b4419909adc55abefe31c0aeb2c6797d9fcb088bbc0b18a017e185e"
+      sha256 "b9aa115ef27defed2f4ba7e9c82584ae8beb00bca7e12d6d9fabb6fe7c896401"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_linux_aarch64.tar.gz")}",
@@ -72,7 +96,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "4a8175bc9199e89b0a8fd27d81c9fa924c7b476ae87e887933fcbd2fe2c4c1a4"
+      sha256 "96555e45d3fe1a05c7825aae44888cac0f39cb5f4436b1b2425ff73a355a4bae"
     end
   end
 
