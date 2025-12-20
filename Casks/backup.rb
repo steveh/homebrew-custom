@@ -46,19 +46,24 @@ cask "backup" do
     end
 
     def self.release_asset_url(tag, name)
-      release_metadata = GitHub::API.open_rest(GitHub.url_to("repos", "steveh", "backup", "releases", "tags", tag))
+      resp = Net::HTTP.get(
+        URI.parse("https://api.github.com/repos/steveh/backup/releases/tags/#{tag}"),
+        {
+          "Accept" => "application/vnd.github+json",
+          "Authorization" => "Bearer #{token}",
+          "X-GitHub-Api-Version" => "2022-11-28"
+        }
+      )
 
-      asset = release_metadata["assets"].detect { |a| a["name"] == name }
-      raise "Asset file not found" unless asset
-
-      asset["url"]
+      release = JSON.parse(resp)
+      release["assets"].find { |asset| asset["name"] == name }["url"]
     end
   end
 
   name "backup"
   desc "Backups"
   homepage "https://github.com/steveh/backup"
-  version "0.3.6"
+  version "0.3.8"
 
   livecheck do
     skip "Auto-generated on release."
@@ -74,7 +79,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "759e50d923cf2cbe4ab7f4c4946e2da88decaa1ce989e0f928295216a131cfe0"
+      sha256 "3301972cff2ea3ba9f395d1213eb8663959315a1705605366018cad7ccd21fa0"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_darwin_arm64.tar.gz")}",
@@ -83,7 +88,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "4fe25ff758b339eba3fed3c5bc3eb08b94d062848666c0499fa604ab271ae5dc"
+      sha256 "0cdcaf03a29cf19213fc60798fab05081d5a8b48d29d6e46b2c45d1bf98576e6"
     end
   end
 
@@ -95,7 +100,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "050e65e6946042dd533f6e2c88a3a35ecb7458b0b70672a9a76277435246c82e"
+      sha256 "744730c0bc208c0be587cb72a800ca0891640a1ea7e3d13d07cf0d6c1b8da076"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_linux_aarch64.tar.gz")}",
@@ -104,7 +109,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "2723855ebdb7700528a45878511e08886e909f07ac42b7e986adfb88e2947f9d"
+      sha256 "7860750a1a6a843667f0126f5c7ad069325b86b5dc69c4e8ea9b2f233c3a14f6"
     end
   end
 
