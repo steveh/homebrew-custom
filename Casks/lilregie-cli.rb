@@ -8,25 +8,62 @@ cask "lilregie-cli" do
   module GitHubHelper
     def self.token
       github_token = Homebrew::EnvConfig.github_api_token
+      github_token = netrc_token if github_token.nil? || github_token.empty?
       github_token ||= GitHub::API.credentials
       raise "Failed to retrieve github api token" if github_token.nil? || github_token.empty?
       github_token
     end
 
+    def self.netrc_token
+      netrc_path = File.expand_path("~/.netrc")
+      return nil unless File.exist?(netrc_path)
+
+      begin
+        current_machine = nil
+        File.foreach(netrc_path) do |line|
+          # Normalize line endings and surrounding whitespace
+          line = line.to_s.strip
+          next if line.empty? || line.start_with?("#")
+
+          # Split on any whitespace
+          tokens = line.split(/\s+/)
+          next if tokens.empty?
+
+          if tokens[0] == "machine" && tokens[1]
+            current_machine = tokens[1]
+          elsif current_machine == "github.com"
+            # Handle both "password TOKEN" on its own line and
+            # "machine github.com login user password TOKEN" formats.
+            password_index = tokens.index("password")
+            return tokens[password_index + 1] if password_index && tokens[password_index + 1]
+          end
+        end
+      rescue
+        # If netrc parsing fails, fall back to other mechanisms
+      end
+
+      nil
+    end
+
     def self.release_asset_url(tag, name)
-      release_metadata = GitHub::API.open_rest(GitHub.url_to("repos", "lilregie", "cli", "releases", "tags", tag))
+      resp = Net::HTTP.get(
+        URI.parse("https://api.github.com/repos/lilregie/cli/releases/tags/#{tag}"),
+        {
+          "Accept" => "application/vnd.github+json",
+          "Authorization" => "Bearer #{token}",
+          "X-GitHub-Api-Version" => "2022-11-28"
+        }
+      )
 
-      asset = release_metadata["assets"].detect { |a| a["name"] == name }
-      raise "Asset file not found" unless asset
-
-      asset["url"]
+      release = JSON.parse(resp)
+      release["assets"].find { |asset| asset["name"] == name }["url"]
     end
   end
 
   name "lilregie-cli"
   desc "Lil Regie CLI"
   homepage "https://github.com/lilregie/cli"
-  version "0.13.0"
+  version "0.31.1"
 
   livecheck do
     skip "Auto-generated on release."
@@ -42,7 +79,7 @@ cask "lilregie-cli" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "7d3e91f7c64e8e03188cdf0e64792f3aef836ed5f508c9207699b658fecebf52"
+      sha256 "4723dd7185d029d2173349321bc251f3e5a413d3edf4ece7f0605019b879c22b"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "lilregie-cli_#{version}_darwin_arm64.tar.gz")}",
@@ -51,7 +88,7 @@ cask "lilregie-cli" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "03d3fd069a3ebe616829c14aa5960a20542ab22eaa7770f77ad2334961e8ce1d"
+      sha256 "d8c2c82a2aec3d5c87643fda7ea682d33d4390df1894176a7f84c059c828c56b"
     end
   end
 
@@ -63,7 +100,7 @@ cask "lilregie-cli" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "78cb26223f1896d112dc421112d618926acfeff3d47223a86630ceaef454c4d2"
+      sha256 "b3781199ebe06fb6e8bf3cebf40d930ba424d3f82ef907550e48724fea307072"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "lilregie-cli_#{version}_linux_aarch64.tar.gz")}",
@@ -72,7 +109,7 @@ cask "lilregie-cli" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "eef97ea97efa26aba76f1e8179386e24a8c26aa1b0fe915900723c5d84e09493"
+      sha256 "c5549f0f18c5e60fa1619d1c47b63f6c412098311309cae1824f6d6a754e6e16"
     end
   end
 
