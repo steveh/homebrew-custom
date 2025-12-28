@@ -56,20 +56,21 @@ cask "sens" do
       )
 
       release = JSON.parse(resp)
-      release["assets"].find { |asset| asset["name"] == name }["url"]
+      asset = release["assets"].find { |asset| asset["name"] == name }
+      asset["url"]
     end
   end
 
   name "sens"
-  desc "Sensors"
+  desc "Lil Regie CLI"
   homepage "https://github.com/steveh/sens"
-  version "0.1.3"
+  version "0.1.4"
 
   livecheck do
     skip "Auto-generated on release."
   end
 
-  binary "sens"
+  binary "lilregie"
 
   on_macos do
     on_intel do
@@ -79,7 +80,7 @@ cask "sens" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "9096a04e1b1a3236034366307d7335086f224c9955eb22f4431dd2acada16bae"
+      sha256 "b4eea474d4fcd46930992ad2f24e26ee105420fbcbf6894623b5b3f9ef86a0fc"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_darwin_arm64.tar.gz")}",
@@ -88,7 +89,7 @@ cask "sens" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "6356b3e7a5a75d7bfd8bae8ffb2d1f364edf9110c49a48f653fff3c09e360425"
+      sha256 "eb2aaf7f2f5e942eb338f0051ce44430047a9c5c3ea92ee98c28ca03aec95bbd"
     end
   end
 
@@ -100,7 +101,7 @@ cask "sens" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "f7558b0ad2f1e58cb5d4c741b1337b8dfd16cbeb978626cf818f63a9736dd2d5"
+      sha256 "8ace3e2434348902af2626c26b28c80491b3fef1a26eb3f893d9e051b32e1a18"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_linux_aarch64.tar.gz")}",
@@ -109,7 +110,7 @@ cask "sens" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "52080d7367eae66caf7bb733946570ccffa93741198a5cd3737946811ccd9131"
+      sha256 "c58bd4580627a0a9927f7dc2bf4025e6f55ec3a19ab5303d0eb16d42536c21b4"
     end
   end
 
