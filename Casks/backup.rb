@@ -56,20 +56,21 @@ cask "backup" do
       )
 
       release = JSON.parse(resp)
-      release["assets"].find { |asset| asset["name"] == name }["url"]
+      asset = release["assets"].find { |asset| asset["name"] == name }
+      asset["url"]
     end
   end
 
   name "backup"
-  desc "Backups"
+  desc "Lil Regie CLI"
   homepage "https://github.com/steveh/backup"
-  version "0.3.8"
+  version "0.3.9"
 
   livecheck do
     skip "Auto-generated on release."
   end
 
-  binary "backup"
+  binary "lilregie"
 
   on_macos do
     on_intel do
@@ -79,7 +80,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "3301972cff2ea3ba9f395d1213eb8663959315a1705605366018cad7ccd21fa0"
+      sha256 "db644af5bfb5ad74e18f68240280e9080dd0fd75f04354a4067c58f5ff87c8c9"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_darwin_arm64.tar.gz")}",
@@ -88,7 +89,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "0cdcaf03a29cf19213fc60798fab05081d5a8b48d29d6e46b2c45d1bf98576e6"
+      sha256 "dd259177f1d714fd130ae13175292f01b3c89e219f4a0ba46f54d5cd82f660ee"
     end
   end
 
@@ -100,7 +101,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "744730c0bc208c0be587cb72a800ca0891640a1ea7e3d13d07cf0d6c1b8da076"
+      sha256 "78fa81d3bca8b15bcdbde69ab02f211e4530407f405f7d4ad46d19ad76ce40d1"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_linux_aarch64.tar.gz")}",
@@ -109,7 +110,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "7860750a1a6a843667f0126f5c7ad069325b86b5dc69c4e8ea9b2f233c3a14f6"
+      sha256 "64156d83dc40b26aae1dd52b40d7b491aee27bf6f904c32fbec3e715c1cabd85"
     end
   end
 
