@@ -56,20 +56,21 @@ cask "power" do
       )
 
       release = JSON.parse(resp)
-      release["assets"].find { |asset| asset["name"] == name }["url"]
+      asset = release["assets"].find { |asset| asset["name"] == name }
+      asset["url"]
     end
   end
 
   name "power"
-  desc "Power"
+  desc "Lil Regie CLI"
   homepage "https://github.com/steveh/power"
-  version "1.4.1"
+  version "1.4.2"
 
   livecheck do
     skip "Auto-generated on release."
   end
 
-  binary "power"
+  binary "lilregie"
 
   on_macos do
     on_intel do
@@ -79,7 +80,7 @@ cask "power" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "ceab2714108e2b085ff53fba8b906c030f167c3ea26fba99ed4a8a99f67a294e"
+      sha256 "4f590f850b9110fc94a2ff3f401b492cf2ffb3a3cb719cce123ef365e977f286"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "power_#{version}_darwin_arm64.tar.gz")}",
@@ -88,7 +89,7 @@ cask "power" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "66773ca7fc78bc565ce5d9d9ea26a1ed91578c066547b03ef1a36a74783704b1"
+      sha256 "0fc4c9edc853ac5902a42a428258b8f50b063efb87fbecbf169a33bd17530d7b"
     end
   end
 
@@ -100,7 +101,7 @@ cask "power" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "01be3d220dfcdd393623a80cc1471817bd0eb99ea596fb9d2bec8cfbc1838b84"
+      sha256 "03304a838208a36e1b0114e1b6bfa58e9fc7aa15b38a78df766d7af0d8a23c54"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "power_#{version}_linux_aarch64.tar.gz")}",
@@ -109,7 +110,7 @@ cask "power" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "b203832fcea06177e5b444fe986a7bc7fd349216145e25c68cb26cd3e0a448cf"
+      sha256 "0e94ab7faca4efa8ed065bf1af3a0103fd2caad5beb3ecee898341cee3ff5508"
     end
   end
 
