@@ -64,7 +64,7 @@ cask "backup" do
   name "backup"
   desc "Lil Regie CLI"
   homepage "https://github.com/steveh/backup"
-  version "0.3.9"
+  version "0.3.10"
 
   livecheck do
     skip "Auto-generated on release."
@@ -80,7 +80,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "db644af5bfb5ad74e18f68240280e9080dd0fd75f04354a4067c58f5ff87c8c9"
+      sha256 "10207d9d145503c828777169489dee185e5e154a2a25ecde89dc73395972ea7d"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_darwin_arm64.tar.gz")}",
@@ -89,7 +89,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "dd259177f1d714fd130ae13175292f01b3c89e219f4a0ba46f54d5cd82f660ee"
+      sha256 "66203f41ffa4aed480043e3ab91bc03f2d6b42e08c762f1f9565fc6832583aad"
     end
   end
 
@@ -101,7 +101,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "78fa81d3bca8b15bcdbde69ab02f211e4530407f405f7d4ad46d19ad76ce40d1"
+      sha256 "1d6417d2270ad5b52ad372c3cf33f5e102ddfd2d06c97ff710b2bf97c7d57944"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_linux_aarch64.tar.gz")}",
@@ -110,7 +110,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "64156d83dc40b26aae1dd52b40d7b491aee27bf6f904c32fbec3e715c1cabd85"
+      sha256 "fa8560a1840114ca495988ccea933b32f66fb80dbefdb9130b0152b0856e6e46"
     end
   end
 
