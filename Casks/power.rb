@@ -62,15 +62,15 @@ cask "power" do
   end
 
   name "power"
-  desc "Lil Regie CLI"
+  desc "Power CLI"
   homepage "https://github.com/steveh/power"
-  version "1.4.3"
+  version "1.4.4"
 
   livecheck do
     skip "Auto-generated on release."
   end
 
-  binary "lilregie"
+  binary "power"
 
   on_macos do
     on_intel do
@@ -80,7 +80,7 @@ cask "power" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "683d3c3d6ba1fd211a57d6ecfd1a112d9ec71641d84d206daa58edb7474003a2"
+      sha256 "e8e9f09a9e13653e0babd5b3750054806d834651ef613687c7d057ab98e1d854"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "power_#{version}_darwin_arm64.tar.gz")}",
@@ -89,7 +89,7 @@ cask "power" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "aec9f05a4535bdd068611089cab225b692bc153b0148011566eef8a77766d67b"
+      sha256 "5dd200958eee026e5e30c168097d5a640c61815856270461152516305a40b2da"
     end
   end
 
@@ -101,7 +101,7 @@ cask "power" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "09e01f7c93e4a8241b508d0a21c183bf9222543e61e0c6790604290ebb3c4cdf"
+      sha256 "b37528e36750f092e743681b8a6e3b9fac2b1b572f61af4118cf95bb8db4611f"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "power_#{version}_linux_aarch64.tar.gz")}",
@@ -110,7 +110,7 @@ cask "power" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "5b58bb59019da9e550a725fac8ab2b2f10373fcc968f384c6307070d80154a75"
+      sha256 "46539fc8c13cef41d135f28bdd3354f2cd5f1049926f046e7eea0e0e82e8650a"
     end
   end
 
