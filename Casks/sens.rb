@@ -64,7 +64,7 @@ cask "sens" do
   name "sens"
   desc "Lil Regie CLI"
   homepage "https://github.com/steveh/sens"
-  version "0.1.5"
+  version "0.1.6"
 
   livecheck do
     skip "Auto-generated on release."
@@ -80,7 +80,7 @@ cask "sens" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "9623ab792dd1de3c07eaeb84e59d684b4a5af17ee4181a3e5fefd324046ea2ac"
+      sha256 "61aa65312e7e03fbc138e4dbe497daa3914a212d2862f06e81c40f20c9fe8b97"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_darwin_arm64.tar.gz")}",
@@ -89,7 +89,7 @@ cask "sens" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "36cff67bdd7f6bfe5d8fd860c071da127167f347b24ba55f09efd34b04a0ad38"
+      sha256 "6507fc6cd97aa33369a01ddc7fb099f1b10c7f70d443f1a9abb6d1458d55dfae"
     end
   end
 
@@ -101,7 +101,7 @@ cask "sens" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "4b75ad8d2bb1610fb34fbd491581823c4b394606509a8f41a43ab1d7da1a4b3d"
+      sha256 "cb2a66640afbf7e0a089e215268282a4879a1c3611f918d12747300b4266ebd2"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_linux_aarch64.tar.gz")}",
@@ -110,7 +110,7 @@ cask "sens" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "8f18227aa2489e5994ea45b6f82b702ed8cfc44ec19d088d2c37fd6cea870d4d"
+      sha256 "65f70233cd22052724c839b18c1852f390b150a229c1e767ec6933a0898a4563"
     end
   end
 
