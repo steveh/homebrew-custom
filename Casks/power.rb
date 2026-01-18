@@ -64,7 +64,7 @@ cask "power" do
   name "power"
   desc "Power CLI"
   homepage "https://github.com/steveh/power"
-  version "1.4.5"
+  version "1.4.6"
 
   livecheck do
     skip "Auto-generated on release."
@@ -80,7 +80,7 @@ cask "power" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "35d1ba66638d80ca2d0925c7738a6cfb32e6c4b01c0207520740183dae436051"
+      sha256 "7753706bab75e28987a79e11eb78742223a3737e5a8f772b680ead3bd8f100c8"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "power_#{version}_darwin_arm64.tar.gz")}",
@@ -89,7 +89,7 @@ cask "power" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "c5a4f29d6843acc8dbd52a16e91fb56b1a20827ddacde1b6bd8a7d8a7c72539a"
+      sha256 "79c8284d32a3903b683fcd9e5a30b6288120947013412f326a4c0e280caa7257"
     end
   end
 
@@ -101,7 +101,7 @@ cask "power" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "5fe3f364d5e248119a8f608ba29e98dcd610d0bc14df3e6c37a89f415a0cf5b5"
+      sha256 "6b2dd0dd034758083df45c83c9a3145eec7656fa0cc72c10a5496c37bfefe448"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "power_#{version}_linux_aarch64.tar.gz")}",
@@ -110,7 +110,7 @@ cask "power" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "e040857db49e0f681986dc077d9d63903476f4f5f731e35ec744d4fb4f7eb1e5"
+      sha256 "109c289608dd5cfdb9e351983b00c1b68f0747b509f6d48a5cf54026d08d6e00"
     end
   end
 
