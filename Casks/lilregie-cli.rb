@@ -64,7 +64,7 @@ cask "lilregie-cli" do
   name "lilregie-cli"
   desc "Lil Regie CLI"
   homepage "https://github.com/lilregie/cli"
-  version "0.13.9"
+  version "0.13.10"
 
   livecheck do
     skip "Auto-generated on release."
@@ -80,7 +80,7 @@ cask "lilregie-cli" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "e00c158e57a7182d860aaec42bbd8995154aaae2740da58b3b605e052cca2397"
+      sha256 "e1452c7fb29fc90e14dc2e01e378c068d477a92684ac4840c84a4a5e6d1c63a2"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "lilregie-cli_#{version}_darwin_arm64.tar.gz")}",
@@ -89,7 +89,7 @@ cask "lilregie-cli" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "8cde22b4ea8ee01b8c98e07911811e59880cf19d6933eb1be84a55906c26d840"
+      sha256 "4fc6f76020083e14864d46bb55ae393e5697f43653ddf403ce2f16bf40d2cfec"
     end
   end
 
@@ -101,7 +101,7 @@ cask "lilregie-cli" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "ce9af803dfc89a3e6f94c05b366b6478476323bde2f221ab442e679aa9533ede"
+      sha256 "9eeeb282fbfeef7eb4ff38f101760e4655a85c0a0370369c18593e488cdb8551"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "lilregie-cli_#{version}_linux_aarch64.tar.gz")}",
@@ -110,7 +110,7 @@ cask "lilregie-cli" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "870c401b341405b44b6d3b1222d98693126c6db5858bb8f087c64726b530dea2"
+      sha256 "67087b6385f42a601fe8902af0f459f4e4461922735d045202b28de0bad31e26"
     end
   end
 
