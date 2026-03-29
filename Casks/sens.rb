@@ -64,7 +64,7 @@ cask "sens" do
   name "sens"
   desc "Sensors"
   homepage "https://github.com/steveh/sens"
-  version "0.1.18"
+  version "0.1.19"
 
   livecheck do
     skip "Auto-generated on release."
@@ -80,7 +80,7 @@ cask "sens" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "2bbb5d08478582e9cbe6ad3649160b77f8585f8fd676dda0eb712f083fd83746"
+      sha256 "c86527f6e04b3c5b6ae5d974c9ba7365d4babc95a7faf4be2cfcf4211f707e99"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_darwin_arm64.tar.gz")}",
@@ -89,7 +89,7 @@ cask "sens" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "1586105e9e5d7e47ea8ca92ddfd5afbbdc57998ff1dc654da6a4edf37b54cb54"
+      sha256 "d8316990ed173feb8d403ed1aef563a53fd3320680c186447f7be60fadfdf0fa"
     end
   end
 
@@ -101,7 +101,7 @@ cask "sens" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "785ed4f94b87d658a5b3aba36738f06477298b207eb9e4c8d7100663e0e97d43"
+      sha256 "19151eac853ba3951ef39cc5df1e9189d0ebe118a2f0d15ee830d859cd8ae43f"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_linux_aarch64.tar.gz")}",
@@ -110,7 +110,7 @@ cask "sens" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "ba157f9f510c006b24e0b84a9607f6040d5fcd8f44399a788f83c6427fd5e7b4"
+      sha256 "3711b202f33ab4961d6174878ec746241d69fe36ee763d2da59b44c90f858e5e"
     end
   end
 
