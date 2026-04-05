@@ -61,16 +61,7 @@ cask "lilregie-cli" do
     end
   end
 
-  name "lilregie-cli"
-  desc "Lil Regie CLI"
-  homepage "https://github.com/lilregie/cli"
-  version "0.13.18"
-
-  livecheck do
-    skip "Auto-generated on release."
-  end
-
-  binary "lilregie"
+  version "0.13.19"
 
   on_macos do
     on_intel do
@@ -80,7 +71,7 @@ cask "lilregie-cli" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "356c58a4a8f16c78d20f53b8e7ce827beea59e997886d508c8926aad55a5721e"
+      sha256 "ec257b1b0187f5ce2fd079643fa4b7cbc927d3cecde12fb796f015bf8e871d86"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "lilregie-cli_#{version}_darwin_arm64.tar.gz")}",
@@ -89,7 +80,7 @@ cask "lilregie-cli" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "7dd17e260a6f07b3e24a84e9b0fd5b18f75b48ead31948e14d6f6fc144a4f4db"
+      sha256 "02c55dfa5b906bf69e19837090dcc0f7d682295741977ce9eaa8d0fd459bbb21"
     end
   end
 
@@ -101,7 +92,7 @@ cask "lilregie-cli" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "01efd03172f54e7f6c91414a164534b5f8365f1a2173f0c7b9c30c0e2c09825d"
+      sha256 "25e1b0de3f4812a97b52ec81a6bb505aeda64a7fb652e5f7434357b32b3b131f"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "lilregie-cli_#{version}_linux_aarch64.tar.gz")}",
@@ -110,9 +101,20 @@ cask "lilregie-cli" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "f33e0c68b3efc0dea7c0b3a47f0028e06776a7d950df710072907787f2038b9c"
+      sha256 "99bc0f5e3ad2c4499f835c9f1c6ac383d7512dd0506a2c8301a795eb0d4e3963"
     end
   end
 
+  name "lilregie-cli"
+  desc "Lil Regie CLI"
+  homepage "https://github.com/lilregie/cli"
+
+  livecheck do
+    skip "Auto-generated on release."
+  end
+
+  binary "lilregie"
+
   # No zap stanza required
+
 end
