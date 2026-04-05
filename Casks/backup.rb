@@ -61,16 +61,7 @@ cask "backup" do
     end
   end
 
-  name "backup"
-  desc "Backup CLI"
-  homepage "https://github.com/steveh/backup"
-  version "0.3.23"
-
-  livecheck do
-    skip "Auto-generated on release."
-  end
-
-  binary "backup"
+  version "0.3.24"
 
   on_macos do
     on_intel do
@@ -80,7 +71,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "33554c3172a452c55a1499a2c37502c82cef90571c2c7fc82e96943f639a6f1b"
+      sha256 "f4ed5f78e62ebcc49e1dff15188c162b4eb95f44d175ad5fa4cd4f6855ebf19d"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_darwin_arm64.tar.gz")}",
@@ -89,7 +80,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "e8f67b5351fad2fde501764def4706c5f96a2862fab0477f5044a2c01e9a0893"
+      sha256 "d67339e419a842b05e91a67974a83403a6e1917e16cbbf110324240acc1a99ac"
     end
   end
 
@@ -101,7 +92,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "6164451f38e29b945afc2d7e15a781ccaebf26b056d1c2e9fba7105ee83e8b88"
+      sha256 "1edc0074cbc6f808e333c970a59ad3719d298685e72474bf6de094974a1fb8b0"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_linux_aarch64.tar.gz")}",
@@ -110,9 +101,20 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "0f6d13357781b05c4d4a859f89c9163d1e0207eb420e0779ab7b5a43b6242aa1"
+      sha256 "e96dc554c1c4a1628ef733d8ac5d4e6db39d1a3fb64e2ce3381679194e82716a"
     end
   end
 
+  name "backup"
+  desc "Backup CLI"
+  homepage "https://github.com/steveh/backup"
+
+  livecheck do
+    skip "Auto-generated on release."
+  end
+
+  binary "backup"
+
   # No zap stanza required
+
 end
