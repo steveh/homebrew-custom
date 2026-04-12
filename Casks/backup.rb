@@ -61,7 +61,7 @@ cask "backup" do
     end
   end
 
-  version "0.3.24"
+  version "0.3.25"
 
   on_macos do
     on_intel do
@@ -71,7 +71,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "f4ed5f78e62ebcc49e1dff15188c162b4eb95f44d175ad5fa4cd4f6855ebf19d"
+      sha256 "36be660a52ab1d12c560baa13bd89dfa2b3b25289533aa44112bdbf14d84b117"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_darwin_arm64.tar.gz")}",
@@ -80,7 +80,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "d67339e419a842b05e91a67974a83403a6e1917e16cbbf110324240acc1a99ac"
+      sha256 "11df291f270d89d10a8a3fc181c0903020e94fffada890c9aa2d61fb54eabaf4"
     end
   end
 
@@ -92,7 +92,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "1edc0074cbc6f808e333c970a59ad3719d298685e72474bf6de094974a1fb8b0"
+      sha256 "964438e343e4d9279142688dab93c7a2511f8e3dab8ce20c06a6823ebe75b71d"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_linux_aarch64.tar.gz")}",
@@ -101,7 +101,7 @@ cask "backup" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "e96dc554c1c4a1628ef733d8ac5d4e6db39d1a3fb64e2ce3381679194e82716a"
+      sha256 "8beab04d26a91377ac41eb860a822ed887d044bbedf70cf279d9fe69e94943e8"
     end
   end
 
