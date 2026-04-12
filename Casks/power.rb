@@ -61,7 +61,7 @@ cask "power" do
     end
   end
 
-  version "1.4.17"
+  version "1.4.18"
 
   on_macos do
     on_intel do
@@ -71,7 +71,7 @@ cask "power" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "38ed6adf5c8d828c055b19a35ed34a7520f3dd03e4b872fa11fb5b7d6934f8a3"
+      sha256 "fb01073368fd4ae8f23c9a64b6fba7c2b667129cd316cff3f4b7d333d2d2d409"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "power_#{version}_darwin_arm64.tar.gz")}",
@@ -80,7 +80,7 @@ cask "power" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "18a25dc0711cfdf01ebb15357fff703d2d216dc204b1d2df789a66eaa4230af6"
+      sha256 "8d9ffa8bf9e89e7ab04496623e201fe80d7f1526535a7bb94609f23ba35b3982"
     end
   end
 
@@ -92,7 +92,7 @@ cask "power" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "3e4f6b7af60fb0286bafedfbefe015fcfceddd8606ff69f2f29d866a52b0c7fa"
+      sha256 "44dd821ff6017b5373896ca1af7ba823e965855b59f594492563f26026ae5480"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "power_#{version}_linux_aarch64.tar.gz")}",
@@ -101,7 +101,7 @@ cask "power" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "536ae84843265f6764648ffa21216e067524c3a45955f5b29a439a93d06f7e1a"
+      sha256 "22952b77f2b41522875150c3bbc6512b5a97dee0d78ac0493d0cfcdca7796d9e"
     end
   end
 
