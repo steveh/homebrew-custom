@@ -61,7 +61,7 @@ cask "sens" do
     end
   end
 
-  version "0.1.21"
+  version "0.1.22"
 
   on_macos do
     on_intel do
@@ -71,7 +71,7 @@ cask "sens" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "a5b9a26d892b1e5739070eadcce56cf4b56a4828134c9660818ddb90e6f21e0e"
+      sha256 "4c5b028214508783f03c6a795fa6a9990d9575ef1f2680e3fdb521b02a0b71ef"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_darwin_arm64.tar.gz")}",
@@ -80,7 +80,7 @@ cask "sens" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "66f7610073df8c032ad4b778b31632d8d4f3764f5e8b88f78fc0a6b6abda6fbc"
+      sha256 "bccb86bf506a087cb1c699dde9ccd684ab57c17435047b4922cdec65178c535a"
     end
   end
 
@@ -92,7 +92,7 @@ cask "sens" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "5097b9e63510b2efe0fb4fb711fe84ac0d94950138de44bba27218ccc3ef9b92"
+      sha256 "57621d3873dda4f3e66aef141d02eb8e55346f6d3ae719f9b0273a459cf25680"
     end
     on_arm do
       url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_linux_aarch64.tar.gz")}",
@@ -101,7 +101,7 @@ cask "sens" do
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "e0a190a7d1d557a24bd3f6a00e768728fa09b262d2b28349e934814f08c5ccd0"
+      sha256 "b1232ab55df3b1db16379e7d8bfa3298847097b3ff70f4b61aa5428314f69807"
     end
   end
 
