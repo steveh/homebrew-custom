@@ -61,47 +61,47 @@ cask "sens" do
     end
   end
 
-  version "0.1.22"
+  version "0.1.23"
 
   on_macos do
     on_intel do
+      sha256 "eade0f5cc86022b3f3a9d9f263eb0591ecaee0db849e7de073e7631ba3282d10"
       url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_darwin_x86_64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "4c5b028214508783f03c6a795fa6a9990d9575ef1f2680e3fdb521b02a0b71ef"
     end
     on_arm do
+      sha256 "d0bbcbecea109e26399c11afc730ed5a051f86f7f1791b4b77896e0699ab5341"
       url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_darwin_arm64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "bccb86bf506a087cb1c699dde9ccd684ab57c17435047b4922cdec65178c535a"
     end
   end
 
   on_linux do
     on_intel do
+      sha256 "c64cd11c086137a3fb1c292d254322171d0d95fb34cbfd266ccc6bd3cc1b6b8f"
       url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_linux_x86_64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "57621d3873dda4f3e66aef141d02eb8e55346f6d3ae719f9b0273a459cf25680"
     end
     on_arm do
+      sha256 "001c63607c9869a5e945085eb6ebb2f3cf1bb72bdfb2cc61616fe08774174e52"
       url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_linux_aarch64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
-      sha256 "b1232ab55df3b1db16379e7d8bfa3298847097b3ff70f4b61aa5428314f69807"
     end
   end
 
