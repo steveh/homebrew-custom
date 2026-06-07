@@ -61,11 +61,11 @@ cask "power" do
     end
   end
 
-  version "1.5.1"
+  version "1.5.2"
 
   on_macos do
     on_intel do
-      sha256 "4aebd414368df582c45af0637477ddc486c85c8cd70643fae9a9b66ad164235c"
+      sha256 "8fe07b71eca981266010e1a913a89a77ff9e2f976adea2583eeffaf44333493b"
       url "#{GitHubHelper.release_asset_url("#{version}", "power_#{version}_darwin_x86_64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
@@ -74,7 +74,7 @@ cask "power" do
         ]
     end
     on_arm do
-      sha256 "524778ab3cd856a1387196acd02c988e7f33a56ff1da6f52c26a89fd915ee0e4"
+      sha256 "8ec4952cad32680fc444763a6bd56035a620b3d61a40eec61f09e863792a3247"
       url "#{GitHubHelper.release_asset_url("#{version}", "power_#{version}_darwin_arm64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
@@ -86,7 +86,7 @@ cask "power" do
 
   on_linux do
     on_intel do
-      sha256 "d3b2d92c76bf36c009309cefd5360c8be117db556ae3446087a1780ef84f7016"
+      sha256 "c3b2960f8c815405dfe277a54e7f817dfef13c1039234c287c3cda61e8e1ef55"
       url "#{GitHubHelper.release_asset_url("#{version}", "power_#{version}_linux_x86_64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
@@ -95,7 +95,7 @@ cask "power" do
         ]
     end
     on_arm do
-      sha256 "6c414565912790350bfa0a8d55bd7316aefa24ce416cd96971836a16955a1114"
+      sha256 "80722ceb8f936240f7c6c68f373463ea7e5f311c847eb607583bb4f0b4472b7c"
       url "#{GitHubHelper.release_asset_url("#{version}", "power_#{version}_linux_aarch64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
