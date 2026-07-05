@@ -61,11 +61,11 @@ cask "sens" do
     end
   end
 
-  version "0.1.32"
+  version "0.1.33"
 
   on_macos do
     on_intel do
-      sha256 "0dd057a7641698219be3ef9eaeabc75c3f9101958a979d48b171f006a3bd82c7"
+      sha256 "98b938084367da98cea198b9fa9aae214f07c3c75a144a2699b9bf86da6c4dd9"
       url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_darwin_x86_64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
@@ -74,7 +74,7 @@ cask "sens" do
         ]
     end
     on_arm do
-      sha256 "1a93dbb3ac63cd654bb2b51b2c8bbfc98e6d10168a352ca1bc4eb4a092ee8ac1"
+      sha256 "d7edd8849dfe92e74f1c846776b4c0e7eeae0832a479a96fea194644a051e5f1"
       url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_darwin_arm64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
@@ -86,7 +86,7 @@ cask "sens" do
 
   on_linux do
     on_intel do
-      sha256 "74d8c2efa4f6b4cea6983cd3080024a320fee3dc8d2662af15195267d0ec85f8"
+      sha256 "422d1064e079aa84ee0a534c9b8ce792e982f4200399095a2d8363d816359ff7"
       url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_linux_x86_64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
@@ -95,7 +95,7 @@ cask "sens" do
         ]
     end
     on_arm do
-      sha256 "d3388106292888b4b995e07db265c528d589ed2193556793e2afa2c4853db8ad"
+      sha256 "116658165f953cdb02e5b5a0dec591d2f2bbdd6ac92aab906ad4651a91dc8521"
       url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_linux_aarch64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
