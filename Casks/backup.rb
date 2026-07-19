@@ -61,11 +61,11 @@ cask "backup" do
     end
   end
 
-  version "0.4.9"
+  version "0.4.10"
 
   on_macos do
     on_intel do
-      sha256 "eb9dab1fc30d9abf0c2f31909c85d57bee100cb142580614773f791c2262c8b0"
+      sha256 "7b1861e42602e57e430e3fe627aa36927bf6ae5177c6a0682773159224608b48"
       url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_darwin_x86_64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
@@ -74,7 +74,7 @@ cask "backup" do
         ]
     end
     on_arm do
-      sha256 "9ab0824dd7e5b3ba4bb33880b7d3e5c25d4cd981b9d762ca2090c37c7570544b"
+      sha256 "e6bf81cf6e4e67183a7bbd72e075c2e452e383f182c5a1387a94ea60610add7c"
       url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_darwin_arm64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
@@ -86,7 +86,7 @@ cask "backup" do
 
   on_linux do
     on_intel do
-      sha256 "8ad3108a74171ef160ded544b3eb7176c27b523aad5123eaa6eaf883869e7182"
+      sha256 "4f4d2f673511b8095276eb25ecb82690292064435fcd41f01eb888cfe1081f1d"
       url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_linux_x86_64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
@@ -95,7 +95,7 @@ cask "backup" do
         ]
     end
     on_arm do
-      sha256 "f8013aaab4f2193ef074919840aa21af5f646b40d043a119427ca645a1ead01d"
+      sha256 "6b7441021c8687e0a7600958e92531868347f2894427d1e671e1be464b77e2a3"
       url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_linux_aarch64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
