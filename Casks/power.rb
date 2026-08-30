@@ -61,20 +61,11 @@ cask "power" do
     end
   end
 
-  version "1.5.13"
+  version "1.5.14"
 
   on_macos do
-    on_intel do
-      sha256 "83dbe3f601c68d41afe68be0e744efb6b3ef5da7a50ac9d0bf79b4ab0febca6d"
-      url "#{GitHubHelper.release_asset_url("#{version}", "power_#{version}_darwin_x86_64.tar.gz")}",
-        header: [
-          "Accept: application/octet-stream",
-          "Authorization: Bearer #{GitHubHelper.token}",
-          "X-GitHub-Api-Version: 2022-11-28",
-        ]
-    end
     on_arm do
-      sha256 "d8b5aa105758c85467e9ecd55c33f11a9054c23589b735c600c33d7775430ecd"
+      sha256 "b292c7b032f89020b2bb1f063dcaf4b676291d37444880478e5d9a01d1d7194d"
       url "#{GitHubHelper.release_asset_url("#{version}", "power_#{version}_darwin_arm64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
@@ -82,21 +73,29 @@ cask "power" do
           "X-GitHub-Api-Version: 2022-11-28",
         ]
     end
-  end
-
-  on_linux do
     on_intel do
-      sha256 "795cd39ea94990b3e93b37a90b86a3c10f2542fa70686bf128a644d831f12b64"
-      url "#{GitHubHelper.release_asset_url("#{version}", "power_#{version}_linux_x86_64.tar.gz")}",
+      sha256 "e3c7f6786d971873ddc140148137075b12dfabc901b68faec6a30eba765ebb5c"
+      url "#{GitHubHelper.release_asset_url("#{version}", "power_#{version}_darwin_x86_64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
     end
+  end
+  on_linux do
     on_arm do
-      sha256 "e5e4d8f5ce2eed2ae0345a217b131673b139c6ae00e81ef07ddbdf7131283028"
+      sha256 "ee0eaa515ebf2d51372dd4532b3f37086439e9f8f595eeaca769d6596354866a"
       url "#{GitHubHelper.release_asset_url("#{version}", "power_#{version}_linux_aarch64.tar.gz")}",
+        header: [
+          "Accept: application/octet-stream",
+          "Authorization: Bearer #{GitHubHelper.token}",
+          "X-GitHub-Api-Version: 2022-11-28",
+        ]
+    end
+    on_intel do
+      sha256 "a9a0f3ad87ff101f64715bc4b05afa1d3a4d026d142f43169e04b0af6fb74b9e"
+      url "#{GitHubHelper.release_asset_url("#{version}", "power_#{version}_linux_x86_64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
           "Authorization: Bearer #{GitHubHelper.token}",
@@ -116,5 +115,4 @@ cask "power" do
   binary "power"
 
   # No zap stanza required
-
 end
