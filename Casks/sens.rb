@@ -61,20 +61,11 @@ cask "sens" do
     end
   end
 
-  version "0.1.40"
+  version "0.1.41"
 
   on_macos do
-    on_intel do
-      sha256 "dccadab9a78ea9461cbea1fc00ac17c3408b10be9db00f5d6b31bf5eaa6d8bba"
-      url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_darwin_x86_64.tar.gz")}",
-        header: [
-          "Accept: application/octet-stream",
-          "Authorization: Bearer #{GitHubHelper.token}",
-          "X-GitHub-Api-Version: 2022-11-28",
-        ]
-    end
     on_arm do
-      sha256 "5cc60cb4c2fad30535f2b9a65f910de09992d3a07033358b3af50610d21efd80"
+      sha256 "09fec4e94b958628a5ef51161374720be9922136998af0490d7c6df9f7660793"
       url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_darwin_arm64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
@@ -82,21 +73,29 @@ cask "sens" do
           "X-GitHub-Api-Version: 2022-11-28",
         ]
     end
-  end
-
-  on_linux do
     on_intel do
-      sha256 "465eac1eb296a5d812f7ba25d71b1a072040394c9987b0ace973d9cf8834222d"
-      url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_linux_x86_64.tar.gz")}",
+      sha256 "8d57e48535bd11be20b439599dfe421ecbe3d3010c7773fca835a4d83e6891ed"
+      url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_darwin_x86_64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
     end
+  end
+  on_linux do
     on_arm do
-      sha256 "bedf37cb01fb0180e46625705049bb09bc69ffc5e166cd5eceb9b91574056e02"
+      sha256 "8c42280036e935b24d4f0faf60ebf036cc058b3df41053164cb5b6fda4c48f5e"
       url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_linux_aarch64.tar.gz")}",
+        header: [
+          "Accept: application/octet-stream",
+          "Authorization: Bearer #{GitHubHelper.token}",
+          "X-GitHub-Api-Version: 2022-11-28",
+        ]
+    end
+    on_intel do
+      sha256 "7aa4a0897a7085a3333dcf3144e96df74b48dbc9fed890537c8c738cd2836665"
+      url "#{GitHubHelper.release_asset_url("#{version}", "sens_#{version}_linux_x86_64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
           "Authorization: Bearer #{GitHubHelper.token}",
@@ -116,5 +115,4 @@ cask "sens" do
   binary "sens"
 
   # No zap stanza required
-
 end
