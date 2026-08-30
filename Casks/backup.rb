@@ -61,20 +61,11 @@ cask "backup" do
     end
   end
 
-  version "0.4.15"
+  version "0.4.16"
 
   on_macos do
-    on_intel do
-      sha256 "fb690e7870414c6db01d085fbfbdc3147fbff0bdf672ed999e6133cf9725390e"
-      url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_darwin_x86_64.tar.gz")}",
-        header: [
-          "Accept: application/octet-stream",
-          "Authorization: Bearer #{GitHubHelper.token}",
-          "X-GitHub-Api-Version: 2022-11-28",
-        ]
-    end
     on_arm do
-      sha256 "ebd488a0622f7226ca009984fcf98309c45b8cfd2681702226a448c17fe69220"
+      sha256 "0d6924c8dd6efc152bb0f40f87c4befcd0db2501daf20738c40a568281cbbb70"
       url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_darwin_arm64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
@@ -82,21 +73,29 @@ cask "backup" do
           "X-GitHub-Api-Version: 2022-11-28",
         ]
     end
-  end
-
-  on_linux do
     on_intel do
-      sha256 "defd00af2bf7394784f6bec787f2e415c6983610996c8461b8491494fb901bc7"
-      url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_linux_x86_64.tar.gz")}",
+      sha256 "c10b2611fcc1e96e1306b984672a391165baebf58b4fa44cc99c6f24095129e2"
+      url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_darwin_x86_64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
           "Authorization: Bearer #{GitHubHelper.token}",
           "X-GitHub-Api-Version: 2022-11-28",
         ]
     end
+  end
+  on_linux do
     on_arm do
-      sha256 "3581f0996941cd2073cebe5a999e24395c968a74707b2b86d4dd08f7e1f02735"
+      sha256 "49f7b1e9ca85c819119e16bc3772274b33a6435a9b27e0b6c429b9915cdbb1e8"
       url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_linux_aarch64.tar.gz")}",
+        header: [
+          "Accept: application/octet-stream",
+          "Authorization: Bearer #{GitHubHelper.token}",
+          "X-GitHub-Api-Version: 2022-11-28",
+        ]
+    end
+    on_intel do
+      sha256 "7d9cf548f65693462cb5ea5adbca314d99a04c4be90448c9162cb2942c57343a"
+      url "#{GitHubHelper.release_asset_url("#{version}", "backup_#{version}_linux_x86_64.tar.gz")}",
         header: [
           "Accept: application/octet-stream",
           "Authorization: Bearer #{GitHubHelper.token}",
@@ -116,5 +115,4 @@ cask "backup" do
   binary "backup"
 
   # No zap stanza required
-
 end
